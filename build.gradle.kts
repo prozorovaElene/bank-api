@@ -29,6 +29,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.flywaydb:flyway-core")
 	implementation("org.flywaydb:flyway-database-postgresql")
+	implementation("org.postgresql:postgresql:42.7.3")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.postgresql:postgresql")
@@ -42,9 +44,10 @@ tasks.withType<Test> {
 }
 
 flyway {
-	driver = 'org.postgresql.Driver'
-	url = 'jdbc:postgresql://localhost:5432/postgres'
-	user = 'postgres'
-	password = '1234'
-	schemas = 'public'
+	driver = "org.postgresql.Driver"
+	url = "jdbc:postgresql://localhost:5432/eleneDB"
+	user = "postgres"
+	password = "123"
+	schemas = arrayOf("public")
+	defaultSchema = "public"
 }
